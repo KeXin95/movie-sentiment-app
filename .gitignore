@@ -1,0 +1,8 @@
+.ipynb_checkpoints/*
+ML_Engineer_TechnicalTest.docx
+sentiment-analysis-on-movie-reviews.zip
+sentiment-analysis-on-movie-reviews/*
+venv/*
+.DS_Store
+.ipynb_checkpoints/
+rf.pkl
