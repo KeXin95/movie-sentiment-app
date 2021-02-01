@@ -1,0 +1,66 @@
+<template>
+    <div>
+        <b-form-textarea v-model="hashtagValue" rows="8" no-resize id="textarea-default" placeholder="Type your sentence here..." v-show="hideinput"></b-form-textarea>
+        <b-button v-on:click="save" variant="primary" @click="hideinput ^= true" v-show="hideinput">Check sentiment</b-button>
+        <br/><br/>
+        <b-button variant="primary" @click="hideinput ^= true" v-show="!hideinput">Back</b-button>
+        <h2 align=left v-show="!hideinput">Your input sentence is:</h2>
+        <span v-show="!hideinput">{{inputsentence}}</span>
+        <h2 v-show="isShowing"> This sentence is <b>"{{value}}"</b></h2>
+        <h2 v-show="isShowingHTML" align=left> Explanation on the prediction: </h2>
+        <iframe :src="source" height="1000" width="950" frameborder=0></iframe>
+
+
+    </div>
+</template>
+
+<script>
+import axios from 'axios'
+export default {
+    name : 'FormNewHashtag',
+    props : {
+        hashtag : String
+    },
+    data() {
+        return{
+            hashtagValue: this.hashtag,
+            isShowing: false,
+            isShowingHTML: false,
+            value: "",
+            value2: "",
+            hideinput: false,
+            inputsentence: "",
+            source: 'http://192.168.1.19:8080/app/temp.html#/'
+        }
+    },
+    methods :{
+        save : function(){
+            axios
+                .get('http://127.0.0.1:5000/echo?hashtag='+ this.hashtagValue)
+                .then(function (response) {
+                    console.log(response);
+                    this.isShowing = true;
+                    this.inputsentence = this.hashtagValue;
+                    this.value = response['data']['result'];
+                    this.$emit('childToParent', 2)
+                }.bind(this))
+                .catch(function (error) {
+                    console.log(error);
+                });
+            axios
+                .get('http://127.0.0.1:5000/explain?hashtag='+ this.hashtagValue)
+                .then(function (response) {
+                    console.log("HI")
+                    console.log(response);
+                    this.isShowingHTML = true;
+                    this.value2 = response['data']['result'];
+                }.bind(this))
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+
+
+    }
+}
+</script>

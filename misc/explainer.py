@@ -14,7 +14,7 @@ class Explainer():
                                               self.model.predict_proba,
                                               num_features=6,
                                               top_labels=len(self.class_names))
-        f = open('/Users/kexinchong/Downloads/frontend/frontend/public/app/temp.html',
+        f = open('/Users/kexinchong/Documents/learning/self/HPE/movie-sentiment-app/frontend/public/app/temp.html',
                  'w')
         f.write(exp.as_html())
         f.close()
