@@ -10,11 +10,11 @@ explainer = Explainer()
 
 
 @cross_origin()
-@app.route('/echo', methods=['GET'])
+@app.route('/scan', methods=['GET'])
 def echo():
     # os.remove('/Users/kexinchong/Downloads/frontend/frontend/public/app/temp.html')
-    hashtag = request.args.get("hashtag")
-    sentiment = model.predict(hashtag)
+    sentence = request.args.get("sentence")
+    sentiment = model.predict(sentence)
     result_json = jsonify({'result': sentiment})
     return result_json
 
@@ -22,7 +22,7 @@ def echo():
 @cross_origin()
 @app.route('/explain', methods=['GET'])
 def expl():
-    hashtag = request.args.get("hashtag")
-    exp = explainer.explain(hashtag)
-    result_json = jsonify({'result': exp})
+    sentence = request.args.get("sentence")
+    status = explainer.explain(sentence)
+    result_json = jsonify({'result': status})
     return result_json
