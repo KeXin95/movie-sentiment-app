@@ -37089,37 +37089,37 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divWQDE1IZ7IP08HIM"></div>
+        <div class="lime top_div" id="top_divPQLZH30FDNTR8UH"></div>
         
         <script>
-        var top_div = d3.select('#top_divWQDE1IZ7IP08HIM').classed('lime top_div', true);
+        var top_div = d3.select('#top_divPQLZH30FDNTR8UH').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["negative", "somewhat negative", "neutral", "somewhat positive", "positive"], [0.013022878192391374, 0.12586714687866765, 0.7571241115509626, 0.0954748473434263, 0.008511016034552128]);
+            var pp = new lime.PredictProba(pp_svg, ["negative", "somewhat negative", "neutral", "somewhat positive", "positive"], [0.009490133009296296, 0.02317060080855388, 0.11885351658953244, 0.3748827125771868, 0.4736030370154306]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["negative", "somewhat negative", "neutral", "somewhat positive", "positive"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["are", 4.980914146234003e-32], ["hello", 3.5491264375434673e-32], ["how", 1.4044458610092534e-32], ["you", 5.291022054431692e-33]], 2, exp_div);
+                exp.show([["best", 0.3576733783317915], ["ever", 0.16088062795929034], ["movie", -0.048017399934742494]], 4, exp_div);
                 
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["hello", 0.0], ["how", 0.0], ["are", 0.0], ["you", 0.0]], 1, exp_div);
+                exp.show([["best", 0.37962071775734035], ["ever", -0.10531108579130448], ["movie", 0.001795076320618101]], 3, exp_div);
                 
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["hello", 0.0], ["how", 0.0], ["are", 0.0], ["you", 0.0]], 3, exp_div);
+                exp.show([["best", -0.6701184169688906], ["movie", 0.04592291298611463], ["ever", -0.017258183025267684]], 2, exp_div);
                 
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["hello", 0.0], ["how", 0.0], ["are", 0.0], ["you", 0.0]], 0, exp_div);
+                exp.show([["best", -0.07595151574861954], ["ever", -0.026380553251685333], ["movie", 0.0005806801092676679]], 1, exp_div);
                 
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["hello", 0.0], ["how", 0.0], ["are", 0.0], ["you", 0.0]], 4, exp_div);
+                exp.show([["ever", -0.011930805891017806], ["best", 0.008775836628394238], ["movie", -0.000281269481246273]], 0, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["are", 10, 4.980914146234003e-32], ["hello", 0, 3.5491264375434673e-32], ["how", 6, 1.4044458610092534e-32], ["you", 14, 5.291022054431692e-33]], 2, "hello how are you?", raw_div, true);
+            exp.show_raw_text([["best", 0, 0.3576733783317915], ["ever", 11, 0.16088062795929034], ["movie", 5, -0.048017399934742494]], 4, "best movie ever!", raw_div, true);
             
         </script>
         </body></html>

@@ -11,3 +11,4 @@ Please refer to `/notebooks` folder for exploratory analysis, model training, an
 running `bash start.sh` from current directory would start the API endpoints.
 
 # Set up for frontend
+For development purpose, `cd frontend & npm run serve`
